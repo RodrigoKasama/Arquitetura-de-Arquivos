@@ -17,19 +17,20 @@ struct _Endereco
 
 int main(int argc, char **argv)
 {
-
-    if (argc != 2)
+    if (argc != 3)
     {
-        fprintf(stderr, "Usage: get_cep <CEP>\n");
-        fprintf(stderr, "Escrito por Rodrigo Parracho (RodrigoKasama)");
+        fprintf(stderr, "Usage: get_cep <CEP> <Database>\n");
+        fprintf(stderr, "Este programa utiliza o conceito de busca binária e, por esse motivo, a base de dados PRECISA estar ordenada.\n");
+        fprintf(stderr, "Escrito por Rodrigo Parracho (RodrigoKasama)\n");
+        exit(1);
     }
 
     FILE *fd;
     Endereco addr;
     int counter = 0;
 
-    char *filename = "cep_ordenado.dat";
     char *cep_req = argv[1];
+    char *filename = argv[2];
 
     fd = fopen(filename, "rb");
 
@@ -54,7 +55,7 @@ int main(int argc, char **argv)
 
     // Esquema de busca binaria
     int inicio = 0, fim = numAdds - 1, meio = 0;
-    int diff_addrs = 0, flag = 0;
+    int diff_addrs, flag = 0;
 
     while (inicio <= fim)
     {
@@ -62,11 +63,16 @@ int main(int argc, char **argv)
 
         // Vai para o meio do intervalo
         fseek(fd, meio * sizeof(Endereco), SEEK_SET);
-        // Le a struct e joga na variavel addr
+
+        // Lê a struct e joga na variavel addr
         fread(&addr, sizeof(Endereco), 1, fd);
+
         // Compara a diff entre as duas strings
         diff_addrs = strncmp(cep_req, addr.cep, 8);
 
+        //fprintf(stderr,"%s\n", addr.logradouro);
+
+        // Não há diferença, é o que procuro..
         if (diff_addrs == 0)
         {
             fprintf(stdout, "Endereco encontrado!\nEndereco: %s", addr.logradouro);
@@ -75,26 +81,29 @@ int main(int argc, char **argv)
         }
         else if (diff_addrs > 0)
         {
+            // Redefine a partição para procurar
             inicio = meio + 1;
         }
         else if (diff_addrs < 0)
         {
+            // Redefine a partição para procurar
             fim = meio - 1;
         }
+        // Verifica quantas buscas são feitas
         counter++;
     }
 
     fclose(fd);
     fprintf(stdout, "\nFim da procura...");
 
-    if (flag == 0)
+    if (flag == 1)
     {
-        fprintf(stderr, "Não foi posivel encontrar o CEP %s, verifique se foi digitado corretamente e tente de novo.\n", cep_req);
-        return -1;
+        fprintf(stdout, "Foram realizadas %d buscas para encontrar este CEP.\n", counter);
     }
     else
     {
-        fprintf(stdout, "Foram realizadas %d buscas para encontrar este CEP.\n", counter);
+        fprintf(stderr, "Não foi posivel encontrar o CEP %s, verifique se o CEP foi digitado corretamente ou se a base de dados realmente está ordenada e tente de novo.\n", cep_req);
+        return -1;
     }
     return 0;
 }
