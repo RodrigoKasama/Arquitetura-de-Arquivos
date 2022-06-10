@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 {
     if (argc != 3)
     {
-        fprintf(stderr, "Usage: get_cep <CEP> <Database>\n");
+        fprintf(stderr, "Usage: %s <CEP> <Database>\n", argv[0]);
         fprintf(stderr, "Este programa utiliza o conceito de busca binária e, por esse motivo, a base de dados PRECISA estar ordenada.\n");
         fprintf(stderr, "Escrito por Rodrigo Parracho (RodrigoKasama)\n");
         exit(1);
