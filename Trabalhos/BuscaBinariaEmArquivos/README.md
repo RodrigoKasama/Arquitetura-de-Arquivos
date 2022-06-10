@@ -9,8 +9,8 @@ gcc -o main busca_bin.c
 ```
 O arquivo utiliza a função ```fseek()``` e ```ftell()``` para cálculo e deslocamento do cursor no arquivo.
 
-Para execução, insira o CEP desejado como prineiro argumento e o diretório do arquivo de dados como segundo argumento.
-
+Para execução, insira o CEP desejado como primeiro argumento e o diretório do arquivo de dados como segundo. 
+Assim como no exemplo:
 ``` bash
 ./main <CEP> <FILEBASE_PATH>
 ```
