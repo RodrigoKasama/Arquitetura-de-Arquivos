@@ -7,7 +7,7 @@ Para compilação do código, recomenda-se utilizar o **gcc**
 ``` bash
 gcc -o main busca_bin.c
 ```
-O arquivo utiliza a função ```fseek()``` e ```ftell()``` para cálculo e deslocamento do cursor no arquivo.
+O arquivo utiliza as funções ```fseek()``` e ```ftell()``` para cálculo e deslocamento do cursor no arquivo.
 
 Para execução, insira o CEP desejado como primeiro argumento e o diretório do arquivo de dados como segundo. 
 Assim como no exemplo:
