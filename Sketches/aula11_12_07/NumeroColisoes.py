@@ -23,7 +23,7 @@ recordCount = 0
 f = open(fileName,"rb")
 while True:
     line = f.read(recordSize)
-    if line == "": # EOF
+    if len(line) != recordSize : # EOF
         break
     record = struct.unpack(cepFormat, line)
     p = h(record[keyColumnIndex])
@@ -53,4 +53,4 @@ for j in countOfCounts:
     media += c*probabilidade
     c += 1
 
-print("Media acesso", media)
+print ("Media acesso", media)

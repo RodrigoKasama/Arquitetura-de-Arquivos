@@ -30,7 +30,7 @@ fileIndexSize = fi.tell()
 recordNumber = 0
 while True:
     line = f.read(dataStruct.size)
-    if line == "": # EOF
+    if len(line) == 0: # EOF
         break
     record = dataStruct.unpack(line)
     key = record[keyColumnIndex] 

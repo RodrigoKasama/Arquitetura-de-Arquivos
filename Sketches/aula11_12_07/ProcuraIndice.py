@@ -19,10 +19,7 @@ def h(key):
 fi = open(indexName,"rb")
 f = open(fileName,"rb")
 
-if len(sys.argv) >= 2:
-    cepProcurado = sys.argv[1]
-else:
-    cepProcurado = raw_input("Entre com o cep: ")
+cepProcurado = sys.argv[1].encode("ascii")
 
 p = h(cepProcurado)
 offset = p*indexStruct.size
