@@ -27,14 +27,17 @@ int main(int argc, char **argv)
 	long comp_arquivo, qnt_els, passo, count = 0;
 	int size_el = sizeof(Endereco);
 	char output[12];
-	
-	if (argc != 2)
+
+	if (argc != 3)
 	{
 		fprintf(stderr, "Numero de argumentos invalidos");
 		return -1;
 	}
+	
 	int n_particoes = atoi(argv[1]);
-	fd = fopen("cep.dat", "rb");
+	char *filename = argv[2];
+
+	fd = fopen(filename, "rb");
 	if (!fd)
 	{
 		printf("Nao foi possivel abrir o arquivo..\n");
