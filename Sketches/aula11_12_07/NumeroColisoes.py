@@ -21,17 +21,22 @@ colisoes = 0
 tamanhoMaiorLista = 0
 recordCount = 0
 f = open(fileName,"rb")
+
 while True:
     line = f.read(recordSize)
     if len(line) != recordSize : # EOF
         break
+
     record = struct.unpack(cepFormat, line)
     p = h(record[keyColumnIndex])
     counts[p] += 1
+
     if counts[p] > 1:
         colisoes += 1
+
     if counts[p] > tamanhoMaiorLista:
         tamanhoMaiorLista = counts[p]
+
     recordCount += 1
 f.close()
 
@@ -47,8 +52,10 @@ print(countOfCounts)
 
 c = 0
 media = 0
+
 for j in countOfCounts:
     probabilidade = c*(float(j)/recordCount)
+    
     print("Lista de tamanho", c, "probabilidade", probabilidade)
     media += c*probabilidade
     c += 1

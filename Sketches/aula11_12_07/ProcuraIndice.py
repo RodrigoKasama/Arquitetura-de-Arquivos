@@ -24,17 +24,22 @@ cepProcurado = sys.argv[1].encode("ascii")
 p = h(cepProcurado)
 offset = p*indexStruct.size
 i = 1
+
 while True:
+
     fi.seek(offset,os.SEEK_SET)
     indexRecord = indexStruct.unpack(fi.read(indexStruct.size))
+
     if indexRecord[0] == cepProcurado:
         f.seek(indexRecord[1]*dataStruct.size,os.SEEK_SET)
         record = dataStruct.unpack(f.read(dataStruct.size))
         print(record)
         print(i)
         break
+
     offset = indexRecord[2]
     if offset == 0:
         break
+
     i += 1
 fi.close()
