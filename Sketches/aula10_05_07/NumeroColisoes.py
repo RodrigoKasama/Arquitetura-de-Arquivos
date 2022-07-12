@@ -35,22 +35,22 @@ while True:
     recordCount += 1
 f.close()
 
-print "Numero Colisoes:", colisoes
-print "Tamanho Maior Lista:", tamanhoMaiorLista
+print("Numero Colisoes:", colisoes)
+print("Tamanho Maior Lista:", tamanhoMaiorLista)
 
 countOfCounts = [0] * (tamanhoMaiorLista+1)
 
 for i in counts:
     countOfCounts[i] += 1
 
-print countOfCounts
+print(countOfCounts)
 
 c = 0
 media = 0
 for j in countOfCounts:
     probabilidade = c*(float(j)/recordCount)
-    print "Lista de tamanho", c, "probabilidade", probabilidade
+    print("Lista de tamanho", c, "probabilidade", probabilidade)
     media += c*probabilidade
     c += 1
 
-print "Media acesso", media
+print("Media acesso", media)
