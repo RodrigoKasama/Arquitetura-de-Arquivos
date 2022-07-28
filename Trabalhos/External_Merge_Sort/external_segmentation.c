@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 	rewind(fd);
 
 	qnt_els = comp_arquivo / size_el;
-	printf("Enderecos no original %ld\n", qnt_els);
+	printf("\tEnderecos no original %ld\n", qnt_els);
 
 	passo = qnt_els / n_particoes;
 	count = 0;
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 			qsort(el, bloco_que_falta, 1, compara);
 			fwrite(el, bloco_que_falta, 1, saida);
 			count += bloco_que_falta / size_el; // Contador de elementos escritos
-			printf("%s -> %ld\n", output, bloco_que_falta / size_el);
+			printf("\t%s -> %ld\n", output, bloco_que_falta / size_el);
 		}
 		else
 		{
@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 			qsort(el, passo, size_el, compara);
 			fwrite(el, passo, size_el, saida);
 			count += passo;
-			printf("%s -> %ld\n", output, passo);
+			printf("\t%s -> %ld\n", output, passo);
 		}
 		free(el);
 		fclose(saida);
