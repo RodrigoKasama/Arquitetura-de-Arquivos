@@ -3,19 +3,17 @@
 ### Introdução 
 Durante as aulas foi reapresentado os conceitos de ordenação como Quicksort, Heapsort, Mergesort...
 
-Todos esses métodos de ordenação basearam-se na afirmativa que o arquivo de dados cabe na memória principal da máquina, apesar de não ser a realidade na maioria dos casos de ordenação.
-
-Por isso, é possivel abordar o conceito de *external sorting* o arquivo é segmentado em N arquivos pequenos o suficiente para o carregamento e ordenação em memória.
+Todos esses métodos de ordenação basearam-se na afirmativa que o arquivo de dados cabem na memória principal da máquina, apesar de não retratar realidade na maioria dos casos de ordenação. Por esse motivo, é possivel abordar o conceito de *external sorting*. O qual o arquivo é segmentado em N arquivos pequenos o suficiente para o carregamento e ordenação em memória.
 
 ### Cabeçalho da Tarefa
 Através do conceito apresentado, o objetivo desse trabalho é criar um programa que, dado o arquivo "cep.dat", crie arquivos segmentados ordenados individualmente.
 
-Ou seja, dado um numero inteiro x como entrada o programa deve gerar 'y' arquivos de acordo com a equação y = 2^x.
+Ou seja, dado um número inteiro x como entrada o programa deve gerar 'y' arquivos de acordo com a equação y = 2^x.
 
-Da mesma forma, a segunda parte dessa tarefa consiste em juntar esses 2^x elementos dois a dois para no fim, remontar o arquivo original "cep.dat".
+Da mesma forma, a segunda parte dessa tarefa consiste em juntar esses 2^x elementos, par a par para no fim, remontar o arquivo original "cep.dat".
 
 ## Instruções
-Para compilação do código, recomenda-se utilizar o **gcc**, é possivel executar os programas individualmente.
+Para compilação do código, recomenda-se utilizar o **gcc**, **é possivel executar os programas individualmente**.
 
 ``` bash
 gcc -o main1 external_segmentation.c
