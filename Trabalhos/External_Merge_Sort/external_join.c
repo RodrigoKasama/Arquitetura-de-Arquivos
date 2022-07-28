@@ -99,11 +99,11 @@ int intercalar_arquivos(int indice, int lastadded)
 	// Os arquivos de entrada estao organizados no arq de saida
 	if (remove(arq1) == 0)
 	{
-		fprintf(stdout, "\t%s apagado dom sucesso\n", arq1);
+		fprintf(stdout, "\t%s apagado com sucesso\n", arq1);
 	}
 	if (remove(arq2) == 0)
 	{
-		fprintf(stdout, "\t%s apagado dom sucesso\n", arq2);
+		fprintf(stdout, "\t%s apagado com sucesso\n", arq2);
 	}
 
 	return 0;
