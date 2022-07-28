@@ -26,7 +26,7 @@ if [[ ! -e "$(pwd)/$FILENAME" ]]; then
     echo "Nao foi possivel encontrar a base de dados $Filename. Verifique se ela se encontra no diretorio '$(pwd)/$CREATIONFILES'";
     exit 1;
 else 
-    mv "$(pwd)/$FILENAME" "$(pwd)/$CREATIONFILES/$FILENAME"
+    cp "$(pwd)/$FILENAME" "$(pwd)/$CREATIONFILES/$FILENAME"
 fi
 
 if [[ ! -e "./$CREATIONFILES/$Creation_bin_name" ]]; then
