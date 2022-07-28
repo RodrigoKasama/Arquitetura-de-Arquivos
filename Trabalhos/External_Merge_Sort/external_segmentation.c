@@ -49,8 +49,8 @@ int main(int argc, char **argv)
 	rewind(fd);
 
 	qnt_els = comp_arquivo / size_el;
-	printf("\tParticoes: %d", n_particoes);
-	printf("\tEnderecos no original %ld\n", qnt_els);
+	printf("\tParticoes: %d\n", n_particoes);
+	printf("\tEnderecos no original %ld.\n", qnt_els);
 
 	passo = qnt_els / n_particoes;
 	count = 0;
