@@ -72,7 +72,7 @@ int intercalar_arquivos(int indice, int lastadded)
 		else
 		{
 			// Prevenção de elementos repetidos elementos repetidos
-			fprintf(stderr, "Aviso! Elementos repetido em dois arquivos diferentes");
+			fprintf(stderr, "Aviso! Elementos repetido em dois arquivos diferentes\n");
 			fwrite(end2, sizeof(Endereco), 1, out);
 			// Anda com qualquer um
 			fread(end1, sizeof(Endereco), 1, fd1);
